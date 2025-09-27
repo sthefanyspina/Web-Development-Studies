@@ -1,0 +1,44 @@
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+  
+
+    #cont {
+        width: 100vw;
+        height: 80vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #smallcont {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 50vh;
+        height: 50vh;
+    }
+
+    .btn {
+        color: white;
+        cursor: pointer;
+        background-color: rgb(109, 110, 111);
+        font-size: 6vmin;
+    }
+
+    .btn:hover {
+        background-color: rgb(70, 71, 71);
+
+    }
+
+    #head {
+        height: 20vh;
+         display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #head h1 {
+        font-size: 6vmin;
+    }
