@@ -1,0 +1,272 @@
+body {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.3) 1px, transparent 1px) 0 0,
+      linear-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 1px) 0 0,
+      white;
+    background-size: 30px 30px, 30px 30px, 90px 90px, 90px 90px;
+    background-color: #333;
+    /* Cinza escuro */
+    font-family: 'Roboto Mono', monospace;
+  }
+  
+  /* Estilos para a grade do Sudoku */
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .cell {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #b4b0b0;
+    text-align: center;
+    /* Alinha o texto horizontalmente ao centro */
+    line-height: 50px;
+    /* Alinha o texto verticalmente ao centro. Ajuste este valor para a altura da sua célula */
+    font-weight: 400;
+    font-size: 30px;
+    /* Ajuste este valor para o tamanho de fonte desejado */
+  }
+  
+  .user_input {
+    font-weight: 200 !important;
+    font-family: 'Times New Roman', serif;
+    color: #777;
+  }
+  
+  /* Adiciona uma borda direita mais espessa a cada terceira célula */
+  .cell:nth-child(3n) {
+    border-right: 2px solid black;
+  }
+  
+  /* Adiciona uma borda inferior mais espessa a cada terceira linha */
+  .row:nth-child(3n) .cell {
+    border-bottom: 2px solid black;
+  }
+  
+  /* Aumenta o tamanho do tabuleiro */
+  #sudoku-board {
+    font-size: 2em;
+    /* Ajuste conforme necessário */
+    margin: 0 auto;
+    /* Centraliza horizontalmente */
+    max-width: 100%;
+    /* Remove espaços desnecessários */
+    height: auto;
+    /* Remove espaços desnecessários */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Centraliza verticalmente */
+  }
+  
+  
+  /* Altera as cores de fundo e do texto das células */
+  .cell {
+    background-color: #ffffff;
+    /* Cinza escuro */
+    font-weight: 800;
+    padding: 10px;
+    /* Espaçamento interno para aumentar o tamanho das células */
+    text-align: center;
+    line-height: 50px;
+    /* Ajuste conforme necessário */
+  }
+  
+  
+  
+  .button-container button,
+  .button-container select {
+    background-color: #333;
+  
+    /* Cinza escuro, igual ao fundo das células */
+    color: #fff;
+    /* Branco, igual ao texto das células */
+    border: none;
+    /* Remove a borda padrão */
+    padding: 10px 20px;
+    /* Adiciona algum espaçamento interno */
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    /* Muda o cursor para indicar que o elemento é clicável */
+    transition: background-color 0.3s;
+    /* Adiciona uma transição suave ao mudar a cor de fundo */
+    outline: 2px solid #fff;
+    /* Adiciona um contorno branco */
+  }
+  
+  .button-container button:hover {
+    background-color: #555;
+    /* Muda a cor de fundo quando o mouse passa por cima */
+  }
+  
+  .numbers-container {
+    justify-content: space-between;
+  }
+  
+  .numbers-container button {
+    /* Estilos adicionais para os botões, se necessário */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 20px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    outline: 2px solid #fff;
+  }
+  
+  .container {
+    max-width: 100% !important;
+    margin-top: 10px;
+  }
+  
+  
+  
+  .numbers-container button + button {
+    margin-left: 2px;
+  }
+  
+  .numbers-container button:hover {
+    background-color: #555;
+    /* Muda a cor de fundo quando o mouse passa por cima */
+  }
+  
+  .sudoku-grid {
+    margin-top: 20px;
+  }
+  
+  
+  .button-container .row {
+    justify-content: start !important;
+  }
+  
+  .button-container button {
+    display: block;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #909090;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  
+  .field-title {
+    font-size: 16px;
+    color: white;
+    margin-top: 20px;
+    text-align: justify;
+    /* margin-bottom: 0px; */
+  }
+  
+  #confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  #victoryModalLabel {
+    color: #333;
+    font-weight: 800;
+    font-size: 17px;
+    line-height: 1px;
+  }
+  
+  @keyframes dance {
+    0% { transform: translateY(0); }
+    10% { transform: translateY(-10px); }
+    20% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+    40% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    60% { transform: translateY(0); }
+    70% { transform: translateY(-10px); }
+    80% { transform: translateY(0); }
+    90% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+  }
+  
+  .dance {
+    animation: dance 1s infinite;
+  }
+  
+  .sudoku-grid {
+    width: 100%;
+    height: 0;
+    position: relative;
+  }
+  
+  .top-menu {
+    position: static;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    border-bottom: 1px dashed #fff;
+    padding: 10px 0;
+    z-index: 100;
+    text-align: left;
+    color: white;
+  }
+  
+  
+  .top-menu h1 {
+    color: white;
+    margin-left: 20px;
+    font-size: 20px;
+  }
